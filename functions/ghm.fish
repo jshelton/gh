@@ -16,6 +16,7 @@ function ghm -d "manage git repos"
   end
 
   set -l path $GH_BASE_DIR/$git_host/$repo
+  mkdir -P "$path"
   if not test -d $path
     git clone --recursive git@$git_host:$repo.git $path
     cd $path; and git branch --set-upstream-to=origin/master master
